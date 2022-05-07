@@ -1,0 +1,77 @@
+.footer-description{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    color: white;
+    
+    padding: 0.5rem;
+    margin-top: 3rem;
+}
+.footer-container{
+    background-color:
+    #0f2844;
+    color: white;
+    text-align: center;
+    padding: 0.3rem;
+    margin-top: 8%;
+}
+.creator-name{
+    color: crimson;
+    font-weight: 700;
+    font-family: inherit;
+}
+.about-title {
+    display: flex;
+}
+
+.about-title img {
+    height: 2.3rem;
+    margin-right: 0.3rem;
+}
+.details p{
+    margin: 0%;
+}
+.footer-header{
+    margin: 0%;
+}
+
+
+
+
+/* --------------------------------------------
+        Responsive for mobile device
+-------------------------------------------- */
+
+@media only screen and (max-width: 600px) {
+    .footer-description{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .about-title img {
+        height: 2rem;
+        width: 2rem;
+    }
+
+    .about-title h3 {
+        font-size: medium;
+
+    }
+
+    .about-title p {
+        font-size: xx-small;
+    }
+
+    .about p {
+        font-size: xx-small;
+        text-align: left;
+    }
+
+    .footer-header {
+        font-size: small;
+    }
+
+    .details p {
+        font-size: xx-small;
+        margin: 0%;
+    }
+}

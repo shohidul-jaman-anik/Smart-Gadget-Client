@@ -1,0 +1,64 @@
+.facilities-title{
+    text-align: center;
+    margin: 1rem 0rem;
+}
+
+.facilities-container {
+
+    padding: 1rem;
+    margin: 4rem, 0rem;
+}
+
+.icon-img {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    /* display: flex;
+    justify-content: space-around; */
+
+}
+
+.icon-revese {
+    display: flex;
+}
+
+.description-fac p {
+    margin: 0%;
+    font-size: small;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.description-fac {
+    margin-left: 0.3rem;
+}
+
+.horizontal-line {
+    height: 2px;
+    width: 95%;
+    background-color: gray;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+
+/* --------------------------------------------
+        Responsive for mobile device
+-------------------------------------------- */
+
+@media only screen and (max-width: 600px) {
+    .icon-img img {
+        height: 30%;
+        width: 30%;
+    }
+
+    .description-fac p {
+        margin: 0%;
+        font-size: xx-small;
+    }
+
+    .facilities-container {
+        width: 100%;
+    }
+    .facilities-title{
+        font-size: medium;
+    }
+}

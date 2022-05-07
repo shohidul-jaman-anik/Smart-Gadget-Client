@@ -1,0 +1,36 @@
+.service-container img {
+    height: 220px;
+    width: 300px;
+
+}
+
+.service-container {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.admit-btn {
+    width: 100%;
+    color: rgb(235, 228, 228);
+    background-color: rgba(7, 6, 6, 0.753);
+    font-weight: 900;
+
+}
+
+@media only screen and (max-width: 576px) {
+    .service-container img {
+        width: 90%;
+
+    }
+
+    .service-container h2  {
+        font-size: large;
+    }
+
+    .service-container h4 {
+        font-size: small;
+    }
+
+    .service-container p {
+        font-size: x-small;
+    }
+}

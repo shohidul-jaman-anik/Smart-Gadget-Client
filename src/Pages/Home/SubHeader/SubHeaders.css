@@ -1,0 +1,30 @@
+.sub-header{
+    color: white;
+    background-color: #112b49;
+    
+}
+.location{
+    font-size: x-small;
+}
+.office-days{
+    font-size: x-small;
+}
+.phone{
+    font-size: x-small;
+}
+
+/* --------------------------------------------
+        Responsive for mobile device
+-------------------------------------------- */
+
+@media only screen and (max-width: 600px) {
+    .location{
+        font-size: xx-small;
+    }
+    .office-days{
+        font-size: xx-small;
+    }
+    .phone{
+        font-size: xx-small;
+    }
+}

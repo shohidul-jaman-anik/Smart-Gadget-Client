@@ -1,0 +1,56 @@
+.header-logo {
+    display: flex;  
+}
+.header-logo h3 {
+    color: #112b49; 
+    font-weight: 700;
+}
+.header-logo p{
+    color: #112b49; 
+}
+
+.header-logo img {
+    width: 35%;
+    height: 25%;
+    margin-right: 8%;
+    margin-left: 3%;
+}
+nav a{
+    text-align: center;
+
+}
+
+.header-container {
+    color: #112b49;
+    background-color: white;
+}
+
+
+.navigate-link{
+    margin-left: auto;
+}
+
+
+
+
+/* --------------------------------------------
+        Responsive for mobile device
+-------------------------------------------- */
+
+@media only screen and (max-width: 600px) {
+    .header-logo img {
+        height: 2rem;
+        width: 2.5rem;
+    }
+
+    .header-logo h3 {
+        font-size: small;
+        margin: 0%;
+    }
+
+    .header-logo p {
+        font-size: xx-small;
+        margin: 0%;
+    }
+
+}
