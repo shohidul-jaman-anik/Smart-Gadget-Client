@@ -8,13 +8,15 @@ const MyItems = () => {
     const [user] = useAuthState(auth)
     const [items, setItems] = useState([])
     useEffect(() => {
-        const getItem = async () => {
+        const getItems = async () => {
             const email = user.email;
             const url = `https://nameless-dusk-43671.herokuapp.com/products?email=${email}`;
-            const {data } = await axios.get(url);
+            const { data } = await axios.get(url,{
+                
+            });
             setItems(data)
         }
-        getItem()
+        getItems()
     }, [user])
     return (
         <div>
