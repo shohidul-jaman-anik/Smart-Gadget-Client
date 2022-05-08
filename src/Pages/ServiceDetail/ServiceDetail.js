@@ -1,38 +1,64 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './ServiceDetail.css'
 
 import ReactImageMagnify from 'react-image-magnify';
-import { useForm } from 'react-hook-form';
+import { useForm, } from 'react-hook-form';
 
 const ServiceDetail = () => {
     const { productsId } = useParams()
 
     const [product, setProduct] = useState([])
     useEffect(() => {
-        const url = (`https://nameless-dusk-43671.herokuapp.com/products/${productsId}`)
+        const url = (`
+        https://nameless-dusk-43671.herokuapp.com/products//${productsId}`)
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data))
-    }, [])
+    }, [product])
         ;
 
-    const { register, handleSubmit } = useForm();
-    const onSubmit = (data, event) => {
-        console.log(data)
+    const handleDelivered = () => {
 
-        const url = `https://nameless-dusk-43671.herokuapp.com/products/${productsId}`
+        const Quantity = parseFloat(product?.Quantity) - 1;
+
+        console.log(Quantity)
+        const update = { Quantity }
+        const url = `
+        https://nameless-dusk-43671.herokuapp.com/products//${productsId}`
         fetch(url, {
             method: "PUT",
             headers: {
                 'content-type': "application/json"
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(update)
         })
             .then(res => res.json())
             .then(result => {
                 console.log(result)
-                event.target.reset()
+                reset()
+            }
+            )
+    }
+
+    const { register, reset, handleSubmit } = useForm();
+    const onSubmit = (data) => {
+        const Quantity = parseFloat(data?.Quantity) + parseFloat(product?.Quantity);
+        console.log(Quantity)
+        const update = { Quantity }
+        const url = `
+        https://nameless-dusk-43671.herokuapp.com/products/${productsId}`
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                'content-type': "application/json"
+            },
+            body: JSON.stringify(update)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+                reset()
             }
             )
     }
@@ -69,7 +95,7 @@ const ServiceDetail = () => {
                     <p>{product.description}</p>
 
                     <div className='d-flex  mt-3 '>
-                        <button className='update-btn ms-2'>Delivered</button>
+                        <button onClick={() => handleDelivered()} className='update-btn ms-2'>Delivered</button>
                         <form className='d-flex w-50 ms-auto ' onSubmit={handleSubmit(onSubmit)}>
 
                             <input className='mb-3 mr-2' placeholder='Enter Price' type="number" {...register("Quantity")} />

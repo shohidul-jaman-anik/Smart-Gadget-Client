@@ -10,13 +10,16 @@ const MyItems = () => {
     useEffect(() => {
         const getItems = async () => {
             const email = user.email;
-            const url = `https://nameless-dusk-43671.herokuapp.com/products?email=${email}`;
+            const url = `https://nameless-dusk-43671.herokuapp.com/product?email=${email}`;
             const { data } = await axios.get(url,{
-                
+                headers: {
+                    authorization:`Bearer ${localStorage.getItem('accessToken')}`
+                    }
             });
-            setItems(data)
+            setItems(data);
         }
         getItems()
+        
     }, [user])
     return (
         <div>
