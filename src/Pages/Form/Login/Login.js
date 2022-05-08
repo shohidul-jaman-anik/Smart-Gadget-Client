@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import Loading from '../../Share/Loading/Loading';
 
 const Login = () => {
     const navigate = useNavigate('')
@@ -40,6 +41,10 @@ const Login = () => {
             toast('Please Enter Your Email')
         }
     }
+   
+    if (loading) {
+                return <Loading></Loading>
+            }
     if(user){
         navigate('/')
     }
