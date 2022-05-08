@@ -6,7 +6,7 @@ const AddItem = () => {
     // const { register, handleSubmit } = useForm();
     // const onSubmit = data => {
     //     console.log(data)
-    //     const url = `http://localhost:5000/products`
+    //     const url = `https://nameless-dusk-43671.herokuapp.com/products`
     //     fetch(url, {
     //         method: "POST",
     //         headers: {
@@ -19,9 +19,9 @@ const AddItem = () => {
     //         )
     // };
     const { register, handleSubmit } = useForm();
-    const onSubmit = (data,event )=> {
+    const onSubmit = (data, event) => {
         console.log(data)
-        const url = `http://localhost:5000/products`
+        const url = `https://nameless-dusk-43671.herokuapp.com/products`
         fetch(url, {
             method: "POST",
             headers: {
@@ -30,11 +30,11 @@ const AddItem = () => {
             body: JSON.stringify(data)
         })
             .then(res => res.json())
-            .then(result => { 
+            .then(result => {
                 console.log(result)
                 event.target.reset()
-              
-             }
+
+            }
             )
     };
     return (

@@ -10,7 +10,7 @@ const ServiceDetail = () => {
 
     const [product, setProduct] = useState([])
     useEffect(() => {
-        const url = (`http://localhost:5000/products/${productsId}`)
+        const url = (`https://nameless-dusk-43671.herokuapp.com/products/${productsId}`)
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data))
@@ -20,9 +20,8 @@ const ServiceDetail = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = (data, event) => {
         console.log(data)
-        event.target.reset()
 
-        const url = `http://localhost:5000/products/${productsId}`
+        const url = `https://nameless-dusk-43671.herokuapp.com/products/${productsId}`
         fetch(url, {
             method: "PUT",
             headers: {
@@ -68,16 +67,19 @@ const ServiceDetail = () => {
 
                     <p>Supplier : {product.supplier}</p>
                     <p>{product.description}</p>
+
+                    <div className='d-flex  mt-3 '>
+                        <button className='update-btn ms-2'>Delivered</button>
+                        <form className='d-flex w-50 ms-auto ' onSubmit={handleSubmit(onSubmit)}>
+
+                            <input className='mb-3 mr-2' placeholder='Enter Price' type="number" {...register("Quantity")} />
+                            <input className='update-btn' type="submit" value="Update" />
+                        </form>
+                    </div>
                 </div>
+
             </div>
 
-            <div>
-                <button>Delivered</button>
-                <form className='d-flex w-50 mx-auto flex-column' onSubmit={handleSubmit(onSubmit)}>
-                    <input className='mb-3' placeholder='Enter Price' type="number" {...register("Quantity")} />
-                    <input type="submit" value="Update" />
-                </form>
-            </div>
 
         </div>
     );

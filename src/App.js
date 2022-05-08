@@ -13,8 +13,8 @@ import { ToastContainer } from 'react-toastify';
 import MngInventories from './Pages/ManageInventory/MngInventories/MngInventories';
 import RequireAuth from './Pages/Other/RequireAuth/RequireAuth';
 import ServiceDetail from './Pages/ServiceDetail/ServiceDetail';
-import { Rotate } from 'react-reveal';
 import AddItem from './Pages/AddItem/AddItem';
+import MyItems from './Pages/MyItems/MyItems';
 
 
 function App() {
@@ -35,6 +35,7 @@ function App() {
         <Route path='/addItem' element={<RequireAuth>
           <AddItem></AddItem>
         </RequireAuth>}></Route>
+        <Route path='/myItem' element={<MyItems></MyItems>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
      

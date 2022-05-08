@@ -6,7 +6,7 @@ import Review from '../Review/Review';
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch('review.json')
+        fetch('https://nameless-dusk-43671.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, []);
@@ -17,19 +17,19 @@ const Reviews = () => {
     return (
         <div>
             <Typed className='review-title'
-                    strings={[
-                        'Customer Review '
-                    ]}
-                    typeSpeed={40}
-                    backSpeed={50}
-                    loop
-                    >  
-                    </Typed>
-                   
+                strings={[
+                    'Customer Review '
+                ]}
+                typeSpeed={40}
+                backSpeed={50}
+                loop
+            >
+            </Typed>
+
             <div className='review-container container'>
 
                 {
-                    reviews.map(studentReview =><Review
+                    reviews.map(studentReview => <Review
                         key={studentReview.id}
                         studentReview={studentReview}
                     ></Review>)

@@ -35,7 +35,7 @@ const Header = () => {
                         <Nav className='navigate-link' >
                             <Nav.Link as={Link} to='/mngInventory' >Manage Inventory</Nav.Link>
                             <Nav.Link as={Link} to='/addItem' >Add Item</Nav.Link>
-                            <Nav.Link as={Link} to='/mngInventory' >My Items</Nav.Link>
+                            <Nav.Link as={Link} to='/myItem' >My Items</Nav.Link>
                             <Nav.Link as={Link} to='/blog' >Blog</Nav.Link>
 
                             <NavDropdown title="About" id="collasible-nav-dropdown" >

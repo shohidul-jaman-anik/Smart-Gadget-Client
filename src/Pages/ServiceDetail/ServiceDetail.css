@@ -30,7 +30,14 @@
 .serviceDetail-container h4 {
     margin: 0px;
 }
-
+.update-btn{
+    background-color: #CAD5E2;
+    color: black;
+    padding: 10px 19px;
+    border-radius: 10px;
+    font-weight: 700;
+    border: none;
+}
 /* --------------------------------------------
         Responsive for mobile device
 -------------------------------------------- */

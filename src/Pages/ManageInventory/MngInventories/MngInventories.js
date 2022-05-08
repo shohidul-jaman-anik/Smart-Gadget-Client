@@ -13,7 +13,7 @@ const MngInventories = () => {
         const proceed = window.confirm('Are you sure ?')
 
         if (proceed) {
-            const url = `http://localhost:5000/products/${id}`
+            const url = `https://nameless-dusk-43671.herokuapp.com/products/${id}`
             fetch(url, {
                 method: "Delete"
             })
@@ -60,7 +60,7 @@ const MngInventories = () => {
                             <button className='btn btn-dark admit-btn' onClick={() => handleDelete(service._id)}>
                                 Delete Item
                             </button>
-                           
+
                         </div>
 
                     </div>)
