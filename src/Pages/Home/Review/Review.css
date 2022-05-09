@@ -18,11 +18,4 @@
     border-radius: 15px;
 }
 
-/*-----------------------------------
- Services Responsive for tab device 
- ------------------------------------*/
- @media only screen and (max-width: 600px) {
-    .review-main h4{
-        font-size: small;
-    }
-}
+
