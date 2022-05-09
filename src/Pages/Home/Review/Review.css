@@ -12,7 +12,11 @@
     color: rgb(139, 134, 134);
     font-size: small;
 }
-
+.review-section{
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 15px;
+}
 
 /*-----------------------------------
  Services Responsive for tab device 
