@@ -30,7 +30,7 @@ const Reviews = () => {
 
                 {
                     reviews.map(studentReview => <Review
-                        key={studentReview.id}
+                        key={studentReview._id}
                         studentReview={studentReview}
                     ></Review>)
 

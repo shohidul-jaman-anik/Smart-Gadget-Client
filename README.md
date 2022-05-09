@@ -1,6 +1,6 @@
 # Project Name:- Smar Gadget Warehouse.
-## [Firebase Live Site Hosting link]().
-## [Server Site Code link]().
+## [Firebase Live Site Hosting link](https://smart-gadget-warehouse.web.app/).
+## [Server Site Code link](https://nameless-dusk-43671.herokuapp.com/).
 
 ## Project Description:-
 * This is basically a warehouse website,

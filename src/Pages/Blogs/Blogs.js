@@ -34,11 +34,11 @@ const Blogs = () => {
                         <li>Vertically Scalable</li>
                         <li>Follows ACID property</li>
 
-                        <h3 className='text-primary'>NoSQL:-</h3>
+                        <h3 className='text-primary'>NoSQL :-</h3>
                         <li>Non-relational or distributed database system.</li>
                         <li>They have dynamic schema</li>
-                        <li>Horizontally scalable</li>
-                        <li>Follows CAP(consistency, availability, partition tolerance)</li>
+                        <li>Horizontally scalable.</li>
+                        <li>Follows CAP(consistency, availability, partition tolerance).</li>
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>

@@ -30,7 +30,7 @@ const Services = () => {
             <div className='services-container'>
                 {
                     someService.map(service => <Service
-                        key={service.id}
+                        key={service._id}
                         service={service}
                     ></Service>)
                 }
