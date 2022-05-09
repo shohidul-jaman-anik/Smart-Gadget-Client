@@ -8,19 +8,19 @@ import { Flip } from 'react-reveal';
 const MyItems = () => {
     const [user] = useAuthState(auth)
     const [items, setItems] = useState([])
-    useEffect(() => {
-        const getItems = async () => {
-            const email = user?.email;
-            const url = `https://nameless-dusk-43671.herokuapp.com/product?email=${email}`;
-            const { data } = await axios.get(url, {
-                headers: {
-                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                }
-            });
-            setItems(data);
-        }
-        getItems()
-    }, [user])
+    // useEffect(() => {
+    //     const getItems = async () => {
+    //         const email = user?.email;
+    //         const url = `https://nameless-dusk-43671.herokuapp.com/product?email=${email}`;
+    //         const { data } = await axios.get(url, {
+    //             headers: {
+    //                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
+    //             }
+    //         });
+    //         setItems(data);
+    //     }
+    //     getItems()
+    // }, [user])
 
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure ?')
