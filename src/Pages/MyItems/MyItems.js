@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import axios from 'axios';
 import auth from '../firebase.init';
-// import { Flip } from 'react-reveal';
+import { Flip } from 'react-reveal';
 
 const MyItems = () => {
     const [user] = useAuthState(auth)
@@ -12,30 +12,56 @@ const MyItems = () => {
         const getItems = async () => {
             const email = user?.email;
             const url = `https://nameless-dusk-43671.herokuapp.com/product?email=${email}`;
-            const { data } = await axios.get(url,{
+            const { data } = await axios.get(url, {
                 headers: {
-                    authorization:`Bearer ${localStorage.getItem('accessToken')}`
-                    }
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
             });
             setItems(data);
         }
         getItems()
     }, [user])
-    return (
-        <div>
-            <h1>my items {items.length}</h1>
-            {/* <div  className='service-container shadow-sm p-2 text-center rounded-3' data-aos="fade-down"
-        data-aos-easing="linear"
-        data-aos-duration="1500">
 
-            <img src={items.picture} alt="" />
-            <h2>{items.name}</h2>
-            <h4>Price: {items.price}</h4>
-            <h4>Quantity : {items.Quantity}</h4>
-           
-            <p>Supplier : {items.supplier}</p>
-            <Flip right cascade><p>{items.description}</p></Flip>
-        </div> */}
+    const handleDelete = id => {
+        const proceed = window.confirm('Are you sure ?')
+
+        if (proceed) {
+            const url = `https://nameless-dusk-43671.herokuapp.com/products/${id}`
+            fetch(url, {
+                method: "Delete"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    const remaining = items.filter(item => item._id !== id)
+                    setItems(remaining)
+                })
+        }
+    }
+
+    return (
+        <div className='mngInventory-container'>
+            <h1>My Item : {items.length}</h1>
+            {
+                items.map(item => <div>
+
+                    <div className='mngInventories shadow-sm p-2 text-center rounded-3' data-aos="fade-down"
+                        data-aos-easing="linear"
+                        data-aos-duration="1500">
+
+                        <img className='bal' src={item.picture} alt="" />
+                        <h2>{item.name}</h2>
+                        <h4>Price: {item.price}</h4>
+                        <h4>Quantity : {item.Quantity}</h4>
+
+                        <p>Supplier : {item.supplier}</p>
+                        <Flip right cascade><p>{item.description}</p></Flip>
+                        <button className='btn btn-dark admit-btn' onClick={() => handleDelete(item._id)}>
+                            Delete Item
+                        </button>
+                    </div>
+                </div>)
+            }
         </div>
     );
 };
