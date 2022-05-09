@@ -11,7 +11,7 @@ const ServiceDetail = () => {
     const [product, setProduct] = useState([])
     useEffect(() => {
         const url = (`
-        https://nameless-dusk-43671.herokuapp.com/products//${productsId}`)
+        https://nameless-dusk-43671.herokuapp.com/products/${productsId}`)
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data))
@@ -21,11 +21,8 @@ const ServiceDetail = () => {
     const handleDelivered = () => {
 
         const Quantity = parseFloat(product?.Quantity) - 1;
-
-        console.log(Quantity)
         const update = { Quantity }
-        const url = `
-        https://nameless-dusk-43671.herokuapp.com/products//${productsId}`
+        const url = `https://nameless-dusk-43671.herokuapp.com/products/${productsId}`
         fetch(url, {
             method: "PUT",
             headers: {
@@ -103,10 +100,7 @@ const ServiceDetail = () => {
                         </form>
                     </div>
                 </div>
-
             </div>
-
-
         </div>
     );
 };
