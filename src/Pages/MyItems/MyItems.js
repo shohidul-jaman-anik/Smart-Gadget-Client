@@ -2,8 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import axios from 'axios';
-import auth from '../firebase.init';
 import { Flip } from 'react-reveal';
+import auth from '../../firebase.init';
+
 
 const MyItems = () => {
     const [user] = useAuthState(auth)

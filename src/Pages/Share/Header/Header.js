@@ -4,9 +4,11 @@ import './Header.css'
 import logo from '../../../Assets/logo-1.png'
 import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
 import { signOut } from 'firebase/auth';
 import Loading from '../Loading/Loading';
+import auth from '../../../firebase.init';
+
+
 
 const Header = () => {
     const [user, loading, error] = useAuthState(auth);

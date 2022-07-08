@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../../Share/Footer/Footer';
 import Banner from '../Banner/Banner';
 import BestSell from '../BestSell/BestSell';
 import Facilities from '../Facillities/Facilities';

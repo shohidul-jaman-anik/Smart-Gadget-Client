@@ -5,9 +5,10 @@ import { Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import auth from '../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import Loading from '../../Share/Loading/Loading';
+import auth from '../../../firebase.init';
+
 
 const Register = () => {
     const navigate = useNavigate('')

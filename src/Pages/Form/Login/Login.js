@@ -5,10 +5,11 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-
 import './Login.css'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import auth from '../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import Loading from '../../Share/Loading/Loading';
 import axios from 'axios';
+import auth from '../../../firebase.init';
+
 
 const Login = () => {
     let location = useLocation();
@@ -31,9 +32,9 @@ const Login = () => {
         const email = event.target.email.value;
         const password = event.target.password.value;
         await signInWithEmailAndPassword(email, password)
-        const { data } = await axios.post('http://localhost:5000/login', { email })
+        const { data } = await axios.post('https://nameless-dusk-43671.herokuapp.com/login', { email })
         console.log(data)
-        localStorage.setItem('accessToken',data.accessToken)
+        localStorage.setItem('accessToken', data.accessToken)
         navigate(from, { replace: true });
         event.target.reset()
     }

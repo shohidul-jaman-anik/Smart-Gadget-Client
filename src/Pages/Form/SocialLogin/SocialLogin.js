@@ -1,9 +1,10 @@
 import React from 'react';
-import auth from '../../firebase.init';
 import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import './SocialLogin.css'
 import Loading from '../../Share/Loading/Loading';
+import auth from '../../../firebase.init';
+
 
 const SocialLogin = () => {
     const navigate = useNavigate('')

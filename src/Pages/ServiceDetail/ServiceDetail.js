@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './ServiceDetail.css'
-
 import ReactImageMagnify from 'react-image-magnify';
 import { useForm, } from 'react-hook-form';
 
@@ -15,12 +14,12 @@ const ServiceDetail = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data))
-    }, [product])
-        ;
+    }, [productsId]);
 
     const handleDelivered = () => {
 
         const Quantity = parseFloat(product?.Quantity) - 1;
+        console.log(Quantity)
         const update = { Quantity }
         const url = `https://nameless-dusk-43671.herokuapp.com/products/${productsId}`
         fetch(url, {
@@ -60,7 +59,6 @@ const ServiceDetail = () => {
             )
     }
 
-
     return (
         <div>
             <div className='serviceDetail-container p-2 text-center rounded-3 container' data-aos="fade-down"
@@ -80,7 +78,6 @@ const ServiceDetail = () => {
                             height: 1400
                         }
                     }} />
-
                 </div>
 
                 <div className='zoom-description'>
