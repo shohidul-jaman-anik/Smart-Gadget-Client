@@ -12,7 +12,7 @@ const AddItem = () => {
     console.log(user)
     const onSubmit = (data, event) => {
         console.log(data)
-        const url = `https://nameless-dusk-43671.herokuapp.com/products`
+        const url = `http://localhost:3000/products`
         fetch(url, {
             method: "POST",
             headers: {

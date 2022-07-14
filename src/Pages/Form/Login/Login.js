@@ -32,7 +32,7 @@ const Login = () => {
         const email = event.target.email.value;
         const password = event.target.password.value;
         await signInWithEmailAndPassword(email, password)
-        const { data } = await axios.post('https://nameless-dusk-43671.herokuapp.com/login', { email })
+        const { data } = await axios.post('http://localhost:3000/login', { email })
         console.log(data)
         localStorage.setItem('accessToken', data.accessToken)
         navigate(from, { replace: true });

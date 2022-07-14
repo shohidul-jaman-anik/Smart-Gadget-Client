@@ -3,7 +3,7 @@
 // const useServiceDetail = (serviceId) => {
 //     const [service, setService] = useState([])
 //     useEffect(() => {
-//         const url = (`https://nameless-dusk-43671.herokuapp.com/products/${serviceId}`)
+//         const url = (`http://localhost:3000/products/${serviceId}`)
 //         fetch(url)
 //             .then(res => res.json())
 //             .then(data => setService(data))

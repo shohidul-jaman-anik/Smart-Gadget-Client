@@ -13,7 +13,7 @@ const MngInventories = () => {
         const proceed = window.confirm('Are you sure ?')
 
         if (proceed) {
-            const url = `https://nameless-dusk-43671.herokuapp.com/products/${id}`
+            const url = `http://localhost:3000/products/${id}`
             fetch(url, {
                 method: "Delete"
             })
