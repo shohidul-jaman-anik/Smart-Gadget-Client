@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom';
 
 
 const Services = () => {
-    const [service, setService] = useProducts()
-    const someService = service.slice(0, 6)
+    const [services, setService] = useProducts()
+   
 
     return (
         <div >
@@ -29,7 +29,7 @@ const Services = () => {
 
             <div className='services-container'>
                 {
-                    someService.map(service => <Service
+                    services.slice(0, 6).map(service => <Service
                         key={service._id}
                         service={service}
                     ></Service>)

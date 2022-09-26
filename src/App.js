@@ -10,6 +10,7 @@ import Blogs from './Pages/Blogs/Blogs';
 import Login from './Pages/Form/Login/Login';
 import Register from './Pages/Form/Register/Register';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import MngInventories from './Pages/ManageInventory/MngInventories/MngInventories';
 import RequireAuth from './Pages/Other/RequireAuth/RequireAuth';
 import ServiceDetail from './Pages/ServiceDetail/ServiceDetail';

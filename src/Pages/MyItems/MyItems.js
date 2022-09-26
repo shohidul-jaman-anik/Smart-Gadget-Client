@@ -9,25 +9,21 @@ import auth from '../../firebase.init';
 const MyItems = () => {
     const [user] = useAuthState(auth)
     const [items, setItems] = useState([])
-    // useEffect(() => {
-    //     const getItems = async () => {
-    //         const email = user?.email;
-    //         const url = `http://localhost:3000/product?email=${email}`;
-    //         const { data } = await axios.get(url, {
-    //             headers: {
-    //                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
-    //             }
-    //         });
-    //         setItems(data);
-    //     }
-    //     getItems()
-    // }, [user])
+    useEffect(() => {
+        const getItems = async () => {
+            const email = user?.email;
+            const url = `http://localhost:5000/product?email=${email}`;
+            const { data } = await axios.get(url);
+            setItems(data);
+        }
+        getItems()
+    }, [user])
 
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure ?')
 
         if (proceed) {
-            const url = `http://localhost:3000/products/${id}`
+            const url = `http://localhost:5000/products/${id}`
             fetch(url, {
                 method: "Delete"
             })

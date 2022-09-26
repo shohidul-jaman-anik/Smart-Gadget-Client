@@ -3,16 +3,20 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
-
-
 import './AddItem.css'
+
+
+
 const AddItem = () => {
-    const { register, handleSubmit } = useForm();
+
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
+
     const [user] = useAuthState(auth);
-    console.log(user)
+
+    console.log('ba.', user)
     const onSubmit = (data, event) => {
         console.log(data)
-        const url = `http://localhost:3000/products`
+        const url = `http://localhost:5000/products`
         fetch(url, {
             method: "POST",
             headers: {
@@ -22,28 +26,71 @@ const AddItem = () => {
         })
             .then(res => res.json())
             .then(result => {
-                toast('item added')
-                console.log(result)
-                event.target.reset()
-
+                if (result) {
+                    toast.success('Item added ')
+                    reset()
+                }
             }
             )
     };
     return (
         <div>
-            <div className='w-50 mx-auto'>
-                <h1>Please Add  service</h1>
-                <form className='d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
-                    <input className='mb-3' placeholder='Enter Your Name'  {...register("name", { required: true, maxLength: 20 })} />
-                    <input className='mb-3' placeholder='Enter Your Email' value={user.email} readOnly {...register("email")} />
-                    <textarea className='mb-3' placeholder='Enter Your Description' {...register("description")} />
-                    <input className='mb-3' placeholder='Enter Price' type="number" {...register("price")} />
-                    <input className=' mb-2 '
-                        placeholder='Enter Quantity' type="number" {...register("Quantity")} />
-                    <input className='mb-3' placeholder='Photo url' type="text" {...register("picture")} />
-                    <input type="submit" value='Add submit' />
-                </form>
-            </div>
+            <h1>Please Add  service  https://nameless-dusk-43671.herokuapp.com/</h1>
+
+            <form onSubmit={handleSubmit(onSubmit)} autocomplete="off" className="mt-6">
+
+                <input
+                    type="text"
+                    placeholder="Your Name"
+                    value={user?.displayname}
+                    className="inputStyle"
+                    {...register("name")}
+                /><br />
+
+                <input
+                    type="email"
+                    placeholder="Your Email"
+                    value={user.email}
+                    className="inputStyle"
+                    {...register("email")}
+                />
+
+                <div >
+                    <input
+                        className="inputStyle"
+                        autocomplete="false"
+                        placeholder='Enter picture Url'
+                        {...register("picture", {
+                            required: {
+                                value: true,
+                                message: 'Picture is Required'
+                            }
+                        })}
+                    />
+                    <label className="label">
+                        {errors.image?.type === 'required' && <span className="label-text-alt text-danger">{errors.image.message}</span>}
+                    </label>
+                </div>
+
+                <div>
+                    <textarea
+                        type="text"
+                        placeholder="About"
+                        className="inputStyle textArea"
+                        {...register("description", {
+                            required: {
+                                value: true,
+                                message: 'Description is Required'
+                            },
+                        })}
+                    />
+                    <label className="label">
+                        {errors.about?.type === 'required' && <span className="label-text-alt text-red-500">{errors.about.message}</span>}
+                    </label>
+                </div>
+
+                <input className='submitBtn' type="submit" value="Add Product" />
+            </form>
         </div>
     );
 };

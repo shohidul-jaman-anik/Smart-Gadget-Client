@@ -13,7 +13,7 @@ const MngInventories = () => {
         const proceed = window.confirm('Are you sure ?')
 
         if (proceed) {
-            const url = `http://localhost:3000/products/${id}`
+            const url = `http://localhost:5000/products/${id}`
             fetch(url, {
                 method: "Delete"
             })

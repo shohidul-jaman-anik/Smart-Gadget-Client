@@ -10,7 +10,7 @@ const ServiceDetail = () => {
     const [product, setProduct] = useState([])
     useEffect(() => {
         const url = (`
-        http://localhost:3000/products/${productsId}`)
+        http://localhost:5000/products/${productsId}`)
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data))
@@ -21,7 +21,7 @@ const ServiceDetail = () => {
         const Quantity = parseFloat(product?.Quantity) - 1;
         console.log(Quantity)
         const update = { Quantity }
-        const url = `http://localhost:3000/products/${productsId}`
+        const url = `http://localhost:5000/products/${productsId}`
         fetch(url, {
             method: "PUT",
             headers: {
@@ -43,7 +43,7 @@ const ServiceDetail = () => {
         console.log(Quantity)
         const update = { Quantity }
         const url = `
-        http://localhost:3000/products/${productsId}`
+        http://localhost:5000/products/${productsId}`
         fetch(url, {
             method: "PUT",
             headers: {
